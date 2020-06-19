@@ -9,6 +9,7 @@
     <h2>{{ pin.description }}</h2>
 </article>
 
+    <a href="{{ path('app_pin_edit' ,{slug:pin.slug}) }}">Editer le pin</a> |
     <a href="{{ path('app_home') }}">Retour à la liste des Pins</a>
 {% endblock %}
 
