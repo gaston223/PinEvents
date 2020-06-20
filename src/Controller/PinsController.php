@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Pin;
+use App\Form\PinType;
 use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -28,6 +29,17 @@ class PinsController extends AbstractController
 
 
     /**
+     * @Route("/pin/{slug}", name="app_pin_show", methods={"GET"})
+     * @param Pin $pin
+     * @return Response
+     */
+    public function show(Pin $pin):Response
+    {
+        return $this->render('pins/show.html.twig', compact('pin'));
+    }
+
+
+    /**
      * @Route("/pins/create", name="app_pins_create", methods={"GET|POST"})
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -36,17 +48,11 @@ class PinsController extends AbstractController
     public function create(Request $request, EntityManagerInterface $em): Response
     {
         $pin = new Pin;
-        $form = $this->createFormBuilder($pin)
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->getForm()
-        ;
+        $form = $this->createForm(PinType::class, $pin);
+
 
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()){
-
-
             $pin = $form->getData();
             $em->persist($pin);
             $em->flush();
@@ -59,19 +65,9 @@ class PinsController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/pin/{slug}", name="app_pin_show", methods={"GET"})
-     * @param Pin $pin
-     * @return Response
-     */
-    public function show(Pin $pin):Response
-    {
-        return $this->render('pins/show.html.twig', compact('pin'));
-    }
-
 
     /**
-     * @Route("/pin/{slug}/edit", name="app_pin_edit", methods={"GET|POST"})
+     * @Route("/pin/{slug}/edit", name="app_pin_edit", methods={"GET|PUT"})
      * @param Pin $pin
      * @param Request $request
      * @param EntityManagerInterface $em
@@ -79,18 +75,14 @@ class PinsController extends AbstractController
      */
     public function edit(Pin $pin, Request $request, EntityManagerInterface $em):Response
     {
-        $form = $this->createFormBuilder($pin)
-            ->add('title', TextType::class)
-            ->add('description', TextareaType::class)
-            ->getForm()
-        ;
+        $form = $this->createForm(PinType::class, $pin, [
+            'method' => 'PUT'
+        ]);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()){
 
-
-            $pin = $form->getData();
             $em->flush();
 
             return $this->redirectToRoute('app_home');
