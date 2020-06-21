@@ -3,12 +3,1511 @@
 {% block title 'Trouvez les meilleurs évenements de votre ville' %}
 
 {% block body %}
-    <h1>{{pluralize(pins | length, 'Pin', 'Pins')  }}</h1>
 
-    {% for pin in pins %}
-        <article>
-            <h2><a href="{{ path('app_pin_show', {slug: pin.slug}) }}">{{pin.title}}</a> </h2>
-            <p>{{ pin.description }}</p>
-        </article>
-    {% endfor %}
+    <!-- Main layout --->
+    <main>
+
+        <div class="container-fluid">
+
+                <form class="form-inline md-form mr-auto">
+
+
+                    <input style="width: 400px" class="form-control mr-sm-2" type="text" placeholder="Recherchez des évènements" aria-label="Search">
+
+                    <select id="ville" class="mdb-select md-form colorful-select dropdown-primary">
+                        <option value="1">Paris</option>
+                        <option value="2">Lyon</option>
+                        <option value="3">Marseille</option>
+                        <option value="4">Bordeaux</option>
+                    </select>
+
+                    <button class="btn aqua-gradient btn-rounded btn-sm my-0" type="submit">Search</button>
+                </form>
+
+
+
+            <h1>{{pluralize(pins | length, 'Pin', 'Pins')  }}</h1>
+
+            {% for pin in pins %}
+                <article>
+                    <h2><a href="{{ path('app_pin_show', {slug: pin.slug}) }}">{{pin.title}}</a> </h2>
+                    <p>{{ pin.description }}</p>
+                </article>
+            {% endfor %}
+            <!-- Magazine --->
+            <div class="row mt-2">
+
+                <!-- Main news --->
+                <div class="col-xl-8 col-md-12">
+
+                    <!-- Section: Magazine posts --->
+                    <section class="section extra-margins mt-2">
+
+                        <h4 class="font-weight-bold"><strong>LATESTS NEWS</strong></h4>
+
+                        <hr class="red title-hr">
+
+                        <!-- Carousel Wrapper --->
+                        <div id="carousel-example-1z" class="carousel slide carousel-fade my-4 z-depth-1" data-ride="carousel">
+
+                            <!-- Indicators --->
+                            <ol class="carousel-indicators">
+
+                                <li data-target="#carousel-example-2" data-slide-to="0" class="active"></li>
+
+                                <li data-target="#carousel-example-2" data-slide-to="1"></li>
+
+                                <li data-target="#carousel-example-2" data-slide-to="2"></li>
+
+                            </ol>
+                            <!-- Indicators --->
+
+                            <!-- Slides --->
+                            <div class="carousel-inner" role="listbox">
+
+                                <div class="carousel-item active">
+
+                                    <div class="view">
+
+                                        <img class="d-block w-100 rounded" src="https://mdbootstrap.com/img/Photos/Slides/img%20(140).jpg"
+                                             alt="First slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>First text</p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="carousel-item">
+
+                                    <!-- Mask color --->
+                                    <div class="view">
+
+                                        <img class="d-block w-100 rounded" src="https://mdbootstrap.com/img/Photos/Slides/img%20(112).jpg"
+                                             alt="Second slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>Secondary text</p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="carousel-item">
+
+                                    <!-- Mask color --->
+                                    <div class="view rgba-black-slight">
+
+                                        <img class="d-block w-100 rounded" src="https://mdbootstrap.com/img/Photos/Slides/img%20(79).jpg"
+                                             alt="Third slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>Third text</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- Slides --->
+
+                            <!-- Controls --->
+                            <a class="carousel-control-prev" href="#carousel-example-2" role="button" data-slide="prev">
+
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                                <span class="sr-only">Previous</span>
+
+                            </a>
+
+                            <a class="carousel-control-next" href="#carousel-example-2" role="button" data-slide="next">
+
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                                <span class="sr-only">Next</span>
+
+                            </a>
+                            <!-- Controls --->
+
+                        </div>
+                        <!-- Carousel Wrapper --->
+
+                        <!-- Section: Top news --->
+                        <section>
+
+                            <h4 class="font-weight-bold mt-5"><strong>TOP NEWS</strong></h4>
+
+                            <hr class="red title-hr">
+
+                            <!-- Grid row --->
+                            <div class="row mb-4">
+
+                                {% for pin in pins %}
+                                <!-- Grid column --->
+                                <div class="col-md-6 text-left mt-3">
+
+                                    <!-- Card -->
+                                    <div class="card">
+
+                                        <!-- Card image -->
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/6-col/img%20(49).jpg"
+                                                 class="card-img-top" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+                                        <!-- Card image -->
+
+                                        <!-- Button -->
+                                        <a class="btn-floating btn-action ml-auto mr-4 mdb-color lighten-3"><i
+                                                    class="fas fa-chevron-right"></i></a>
+
+                                        <!-- Card content -->
+                                        <div class="card-body">
+
+                                            <!-- Title -->
+                                            <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                            <hr>
+
+                                            <!-- Text -->
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+
+                                                card's
+
+                                                content.
+
+                                            </p>
+
+                                        </div>
+                                        <!-- Card content -->
+
+                                        <!-- Card footer -->
+                                        <div class="mdb-color lighten-3 text-center">
+
+                                            <ul class="list-unstyled list-inline font-small mt-3">
+
+                                                <li class="list-inline-item pr-2 white-text"><i class="far fa-clock-o pr-1"></i>05/10/2015</li>
+
+                                                <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                                                class="far fa-comments pr-1"></i>12</a></li>
+
+                                                <li class="list-inline-item pr-2"><a href="#" class="white-text"><i
+                                                                class="fab fa-facebook-f pr-1">
+
+                                                        </i>21</a></li>
+
+                                                <li class="list-inline-item"><a href="#" class="white-text"><i class="fab fa-twitter pr-1">
+                                                        </i>5</a></li>
+
+                                            </ul>
+
+                                        </div>
+                                        <!-- Card footer -->
+
+                                    </div>
+                                    <!-- Card -->
+
+                                </div>
+                                <!-- Grid column --->
+                                {% endfor %}
+
+
+                            </div>
+                            <!-- Grid row --->
+
+
+                        </section>
+
+                        <!-- Section:  Top news --->
+                        <h4 class="font-weight-bold mt-5"><strong>SPORT</strong></h4>
+
+                        <hr class="red title-hr">
+
+                        <!-- Carousel Wrapper --->
+                        <div id="carousel-example-3" class="carousel slide carousel-fade my-4 z-depth-1" data-ride="carousel">
+
+                            <!-- Indicators --->
+                            <ol class="carousel-indicators">
+
+                                <li data-target="#carousel-example-3" data-slide-to="0" class="active"></li>
+
+                                <li data-target="#carousel-example-3" data-slide-to="1"></li>
+
+                                <li data-target="#carousel-example-3" data-slide-to="2"></li>
+
+                            </ol>
+                            <!-- Indicators --->
+
+                            <!-- Slides --->
+                            <div class="carousel-inner" role="listbox">
+
+                                <div class="carousel-item active">
+
+                                    <div class="view">
+
+                                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(81).jpg"
+                                             alt="First slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>First text</p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="carousel-item">
+
+                                    <!-- Mask color --->
+                                    <div class="view">
+
+                                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(80).jpg"
+                                             alt="Second slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>Secondary text</p>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="carousel-item">
+
+                                    <!-- Mask color --->
+                                    <div class="view">
+
+                                        <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Slides/img%20(39).jpg"
+                                             alt="Third slide">
+
+                                        <div class="mask rgba-black-light"></div>
+
+                                    </div>
+
+                                    <div class="carousel-caption">
+
+                                        <h3 class="h3-responsive font-weight-bold">Title of the news</h3>
+
+                                        <p>Third text</p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!-- Slides --->
+
+                            <!-- Controls --->
+                            <a class="carousel-control-prev" href="#carousel-example-3" role="button" data-slide="prev">
+
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                                <span class="sr-only">Previous</span>
+
+                            </a>
+
+                            <a class="carousel-control-next" href="#carousel-example-3" role="button" data-slide="next">
+
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                                <span class="sr-only">Next</span>
+
+                            </a>
+                            <!-- Controls --->
+
+                        </div>
+                        <!-- Carousel Wrapper --->
+
+                        <!-- Grid row --->
+                        <div class="row mb-4">
+
+                            <!-- Grid column --->
+                            <div class="col-md-4 my-3">
+
+                                <!-- Card --->
+                                <div class="card">
+
+                                    <!-- Card image --->
+                                    <div class="view overlay">
+
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Sport/6-col/img%20(1).jpg"
+                                             class="card-img-top" alt="Sample image">
+
+                                        <a>
+
+                                            <div class="mask rgba-white-slight"></div>
+
+                                        </a>
+
+                                    </div>
+                                    <!-- Card image --->
+
+                                    <!-- Card content --->
+                                    <div class="card-body">
+
+                                        <!-- Title --->
+                                        <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                        <hr>
+
+                                        <!-- Text --->
+                                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk
+
+                                            of the card's
+
+                                            content.
+
+                                        </p>
+
+                                        <p class="font-small font-weight-bold dark-grey-text mb-1"><i class="far fa-clock-o"></i>
+
+                                            27/08/2017</p>
+
+                                        <p class="font-small grey-text mb-0">Anna Smith</p>
+
+                                        <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                                        class="fas fa-angle-right"></i></a></p>
+
+                                    </div>
+                                    <!-- Card content --->
+
+                                </div>
+                                <!-- Card --->
+
+                            </div>
+                            <!-- Grid column --->
+
+                            <!-- Grid column --->
+                            <div class="col-md-4 text-left mt-3">
+
+                                <!-- Card --->
+                                <div class="card">
+
+                                    <!-- Card image --->
+                                    <div class="view overlay">
+
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Sport/6-col/img%20(2).jpg"
+                                             class="card-img-top" alt="Sample image">
+
+                                        <a>
+
+                                            <div class="mask rgba-white-slight"></div>
+
+                                        </a>
+
+                                    </div>
+                                    <!-- Card image --->
+
+                                    <!-- Card content --->
+                                    <div class="card-body">
+
+                                        <!-- Title --->
+                                        <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                        <hr>
+
+                                        <!-- Text --->
+                                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk
+
+                                            of the card's
+
+                                            content.
+
+                                        </p>
+
+                                        <p class="font-small font-weight-bold dark-grey-text mb-1"><i class="far fa-clock-o"></i>
+
+                                            27/08/2017</p>
+
+                                        <p class="font-small grey-text mb-0">Anna Smith</p>
+
+                                        <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                                        class="fas fa-angle-right"></i></a></p>
+
+                                    </div>
+                                    <!-- Card content --->
+
+                                </div>
+                                <!-- Card --->
+
+                            </div>
+                            <!-- Grid column --->
+
+                            <!-- Grid column --->
+                            <div class="col-md-4 text-left mt-3">
+
+                                <!-- Card --->
+                                <div class="card">
+
+                                    <!-- Card image --->
+                                    <div class="view overlay">
+
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Sport/6-col/img%20(3).jpg"
+                                             class="card-img-top" alt="Sample image">
+
+                                        <a>
+
+                                            <div class="mask rgba-white-slight"></div>
+
+                                        </a>
+
+                                    </div>
+                                    <!-- Card image --->
+
+                                    <!-- Card content --->
+                                    <div class="card-body">
+
+                                        <!-- Title --->
+                                        <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                        <hr>
+
+                                        <!-- Text --->
+                                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk
+
+                                            of the card's
+
+                                            content.
+
+                                        </p>
+
+                                        <p class="font-small font-weight-bold dark-grey-text mb-1"><i class="far fa-clock-o"></i>
+
+                                            27/08/2017</p>
+
+                                        <p class="font-small grey-text mb-0">Anna Smith</p>
+
+                                        <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                                        class="fas fa-angle-right"></i></a></p>
+
+                                    </div>
+                                    <!-- Card content --->
+
+                                </div>
+                                <!-- Card --->
+
+                            </div>
+                            <!-- Grid column --->
+
+                        </div>
+
+                        <!-- Grid row --->
+                        <h4 class="font-weight-bold mt-5"><strong>LIFESTYLE</strong></h4>
+
+                        <hr class="red title-hr">
+
+                        <!-- Grid row --->
+                        <div class="row single-post mb-4">
+
+                            <!-- Grid column --->
+                            <div class="col-md-6 text-left mt-3">
+
+                                <!-- Card --->
+                                <div class="card">
+
+                                    <!-- Card image --->
+                                    <div class="view overlay">
+
+                                        <img src="https://mdbootstrap.com/img/Photos/Others/images/1.jpg" class="card-img-top"
+                                             alt="Sample image">
+
+                                        <a>
+
+                                            <div class="mask rgba-white-slight"></div>
+
+                                        </a>
+
+                                    </div>
+                                    <!-- Card image --->
+
+                                    <!-- Card content --->
+                                    <div class="card-body">
+
+                                        <!-- Title --->
+                                        <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                        <hr>
+
+                                        <!-- Text --->
+                                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk
+
+                                            of the card's
+
+                                            content.
+
+                                        </p>
+
+                                        <p class="font-small font-weight-bold dark-grey-text mb-1"><i class="far fa-clock-o"></i>
+
+                                            27/08/2017</p>
+
+                                        <p class="font-small grey-text mb-0">Anna Smith</p>
+
+                                        <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                                        class="fas fa-angle-right"></i></a></p>
+
+                                    </div>
+                                    <!-- Card content --->
+
+                                </div>
+                                <!-- Card --->
+
+                            </div>
+                            <!-- Grid column --->
+
+                            <!-- Grid column --->
+                            <div class="col-md-6 text-left mt-3">
+
+                                <!-- Card --->
+                                <div class="card">
+
+                                    <!-- Card image --->
+                                    <div class="view overlay">
+
+                                        <img src="https://mdbootstrap.com/img/Photos/Others/images/4.jpg" class="card-img-top"
+                                             alt="sample image">
+
+                                        <a>
+
+                                            <div class="mask rgba-white-slight"></div>
+
+                                        </a>
+
+                                    </div>
+                                    <!-- Card image --->
+
+                                    <!-- Card content --->
+                                    <div class="card-body">
+
+                                        <!-- Title --->
+                                        <h4 class="card-title"><strong>Card title</strong></h4>
+
+                                        <hr>
+
+                                        <!-- Text --->
+                                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk
+
+                                            of the card's
+
+                                            content.
+
+                                        </p>
+
+                                        <p class="font-small font-weight-bold dark-grey-text mb-1"><i class="far fa-clock-o"></i>
+
+                                            27/08/2017</p>
+
+                                        <p class="font-small grey-text mb-0">Anna Smith</p>
+
+                                        <p class="text-right mb-0 font-small font-weight-bold"><a>read more <i
+                                                        class="fas fa-angle-right"></i></a></p>
+
+                                    </div>
+                                    <!-- Card content --->
+
+                                </div>
+                                <!-- Card --->
+
+                            </div>
+                            <!-- Grid column --->
+
+                        </div>
+                        <!-- Grid row --->
+
+                    </section>
+                    <!-- Section: Magazine posts --->
+
+                    <!-- Pagination dark --->
+                    <nav>
+
+                        <ul class="pagination pg-dark flex-center pt-4">
+
+                            <!-- Arrow left --->
+                            <li class="page-item">
+
+                                <a class="page-link" aria-label="Previous">
+
+                                    <span aria-hidden="true">&laquo;</span>
+
+                                    <span class="sr-only">Previous</span>
+
+                                </a>
+
+                            </li>
+
+                            <!-- Numbers --->
+                            <li class="page-item active"><a class="page-link">1</a></li>
+
+                            <li class="page-item"><a class="page-link">2</a></li>
+
+                            <li class="page-item"><a class="page-link">3</a></li>
+
+                            <li class="page-item"><a class="page-link">4</a></li>
+
+                            <li class="page-item"><a class="page-link">5</a></li>
+
+                            <!-- Arrow right --->
+                            <li class="page-item">
+
+                                <a class="page-link" aria-label="Next">
+
+                                    <span aria-hidden="true">&raquo;</span>
+
+                                    <span class="sr-only">Next</span>
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </nav>
+                    <!-- Pagination dark grey --->
+
+                </div>
+                <!-- Main news --->
+
+                <!-- Sidebar --->
+                <div class="col-xl-4 col-md-12 widget-column mt-0">
+
+                    <!-- Section: Categories --->
+                    <section class="section mb-5">
+
+                        <h4 class="font-weight-bold mt-2"><strong>CATEGORIES</strong></h4>
+
+                        <hr class="red title-hr">
+
+                        <ul class="list-group z-depth-1 mt-4">
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Business</a>
+
+                                <span class="badge badge-danger badge-pill">4</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Entertainment</a>
+
+                                <span class="badge badge-danger badge-pill">2</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Health</a>
+
+                                <span class="badge badge-danger badge-pill">1</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Lifestyle</a>
+
+                                <span class="badge badge-danger badge-pill">2</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Photography</a>
+
+                                <span class="badge badge-danger badge-pill">1</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Technology</a>
+
+                                <span class="badge badge-danger badge-pill">2</span>
+
+                            </li>
+
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+
+                                <a>Sport</a>
+
+                                <span class="badge badge-danger badge-pill">5</span>
+
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+                    <!-- Section: Categories --->
+                    <h4 class="font-weight-bold"><strong>RECOMMEND POSTS</strong></h4>
+
+                    <hr class="red title-hr mb-4">
+
+                    <!-- Section: News widget --->
+                    <section class="section widget-content mt-5">
+
+                        <!-- Nav tabs --->
+                        <ul class="nav md-tabs tabs-3 nav-justified widget-tabs mx-0 mdb-color lighten-3" role="tablist">
+
+                            <li class="nav-item">
+
+                                <a class="nav-link active px-0" data-toggle="tab" href="#panel1" role="tab">RECOMMEND</a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link" data-toggle="tab" href="#panel2" role="tab">RECENT</a>
+
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link" data-toggle="tab" href="#panel3" role="tab">TOP REVIEWS</a>
+
+                            </li>
+
+                        </ul>
+
+                        <!-- Tab panels --->
+                        <div class="tab-content p-0 ml-2">
+
+                            <!-- Panel 1 --->
+                            <div class="tab-pane fade in show active" id="panel1" role="tabpanel">
+
+                                <div class="single-post">
+
+                                    <!-- First row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Others/laptop-sm.jpg" class="img-fluid"
+                                                     alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- First row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Second row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Others/img%20(43).jpg" class="img-fluid"
+                                                     alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Second row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Third row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Others/img%20(39).jpg" class="img-fluid"
+                                                     alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Third row --->
+
+                                </div>
+
+                            </div>
+                            <!-- Panel 1 --->
+
+                            <!-- Panel 2 --->
+                            <div class="tab-pane fade" id="panel2" role="tabpanel">
+
+                                <div class="single-post">
+
+                                    <!-- First row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(85).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- First row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Second row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(43).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Second row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Third row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Work/4-col/img%20(30).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Third row --->
+
+                                </div>
+
+                            </div>
+                            <!-- Panel 2 --->
+
+                            <!-- Panel 3 --->
+                            <div class="tab-pane fade" id="panel3" role="tabpanel">
+
+                                <div class="single-post">
+
+                                    <!-- First row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(64).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- First row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Second row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(76).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Second row --->
+
+                                </div>
+
+                                <div class="single-post">
+
+                                    <!-- Third row --->
+                                    <div class="row">
+
+                                        <!-- Image --->
+                                        <div class="col-4">
+
+                                            <div class="view overlay z-depth-1">
+
+                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(75).jpg"
+                                                     class="img-fluid" alt="sample image">
+
+                                                <a>
+
+                                                    <div class="mask rgba-white-slight"></div>
+
+                                                </a>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Image --->
+
+                                        <!-- Excerpt --->
+                                        <div class="col-8">
+
+                                            <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                            <div class="post-data">
+
+                                                <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                            </div>
+
+                                        </div>
+                                        <!-- Excerpt --->
+
+                                    </div>
+                                    <!-- Third row --->
+
+                                </div>
+
+                            </div>
+                            <!-- Panel 3 --->
+
+                        </div>
+                        <!-- Tab panels --->
+
+                    </section>
+                    <!-- Section: News widget --->
+
+
+
+                    <!-- Section: Featured posts --->
+                    <section class="section widget-content">
+
+                        <!-- Heading --->
+                        <h4 class="font-weight-bold pt-2"><strong>FEATURED POSTS</strong></h4>
+
+                        <hr class="red title-hr mb-4">
+
+                        <!-- Card --->
+                        <div class="card card-body pb-0">
+
+                            <div class="single-post">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <div class="col-4">
+
+                                        <!-- Image --->
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(121).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 18/08/2017</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                            <div class="single-post">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <!-- Image --->
+                                    <div class="col-4">
+
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(30).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Image --->
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 21/08/2017</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                            <div class="single-post">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <!-- Image --->
+                                    <div class="col-4">
+
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(118).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Image --->
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 27/08/2017</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                            <div class="single-post">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <!-- Image --->
+                                    <div class="col-4">
+
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(116).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Image --->
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 27/08/2017</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                            <div class="single-post">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <!-- Image --->
+                                    <div class="col-4">
+
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(124).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Image --->
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 15/09/2017</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                            <div class="single-post mb-0">
+
+                                <!-- Grid row --->
+                                <div class="row">
+
+                                    <!-- Image --->
+                                    <div class="col-4">
+
+                                        <div class="view overlay">
+
+                                            <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/4-col/img%20(85).jpg"
+                                                 class="img-fluid z-depth-1 rounded-0" alt="sample image">
+
+                                            <a>
+
+                                                <div class="mask rgba-white-slight"></div>
+
+                                            </a>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Image --->
+
+                                    <!-- Excerpt --->
+                                    <div class="col-8">
+
+                                        <h6 class="mt-0 mb-3"><a><strong>This is title of the news</strong></a></h6>
+
+                                        <div class="post-data">
+
+                                            <p class="font-small grey-text mb-0"><i class="far fa-clock-o"></i> 21/08/2018</p>
+
+                                        </div>
+
+                                    </div>
+                                    <!-- Excerpt --->
+
+                                </div>
+                                <!-- Grid row --->
+
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <!-- Section: Featured posts --->
+
+                </div>
+                <!-- Sidebar --->
+
+            </div>
+            <!-- Magazine --->
+
+        </div>
+
+    </main>
+    <!-- Main layout --->
 {% endblock %}

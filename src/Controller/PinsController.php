@@ -6,10 +6,7 @@ use App\Entity\Pin;
 use App\Form\PinType;
 use App\Repository\PinRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -92,6 +89,21 @@ class PinsController extends AbstractController
             'form'=> $form->createView(),
             'pin'=>$pin
         ]);
+    }
+
+    /**
+     * @Route("/pin/{slug}/delete", name="app_pin_delete", methods={"DELETE"})
+     * @param Pin $pin
+     * @param EntityManagerInterface $em
+     * @param Request $request
+     * @return Response
+     */
+    public function delete(Pin $pin, EntityManagerInterface $em, Request $request):Response
+    {
+        if($this->isCsrfTokenValid('pin_delete_'.$pin->getId(),$request->request->get('csrf_token') ))
+        $em->remove($pin);
+        $em->flush();
+      return $this->redirectToRoute('app_home');
     }
 
 

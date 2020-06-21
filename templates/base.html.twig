@@ -2,18 +2,198 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>Pin Events : {% block title %}{% endblock %}</title>
+
+        <!-- Required meta tags always come first -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+        <!-- Bootstrap core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="../css/mdb.min.css" rel="stylesheet">
         {% block stylesheets %}{% endblock %}
     </head>
-    <body>
+    <body class="fixed-sn homepage-v5">
+    <nav class="navbar navbar-expand-lg navbar-dark stylish-color-dark" style="padding: 1rem">
 
-    <nav>
-        <ul>
-            <li><a href="{{ path('app_home') }}">Accueil</a></li>
-            <li><a href="{{ path('app_pins_create') }}">Créer un Pin</a></li>
-        </ul>
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="{{path('app_home')}}">PinEvents</a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+                    class="navbar-toggler-icon"></span></button>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <!-- Links -->
+            <ul class="navbar-nav mr-auto">
+
+                <!-- Dropdown -->
+                <li class="nav-item">
+
+                    <a href="{{ path('app_home') }}" class="nav-link">Accueil</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item ">
+                    <a href="{{ path('app_pins_create') }}" class="nav-link">Créer un Pin</a>
+                </li>
+
+            </ul>
+            <!-- Links -->
+
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Search form -->
+                <form class="form-inline">
+
+                    <div class="md-form my-0">
+
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+
+                    </div>
+
+                </form>
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> Profile </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-info" aria-labelledby="navbarDropdownMenuLink-4">
+                        <a class="dropdown-item" href="#">My account</a>
+                        <a class="dropdown-item" href="#">Log out</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+        <!-- Collapsible content -->
+
     </nav>
+
+
         {% block body %}{% endblock %}
+
+
+    <!-- Footer --->
+    <footer class="page-footer stylish-color-dark mt-4 pt-4">
+
+        <!-- Footer Links --->
+        <div class="container-fluid">
+
+            <hr>
+
+            <div class="row py-3 d-flex align-items-center">
+
+                <!-- Grid column --->
+                <div class="col-md-7 col-lg-8">
+
+                    <!-- Copyright --->
+                    <p class="text-center text-md-left grey-text">
+
+                        © 2019 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com
+
+                        </a>
+
+                    </p>
+                    <!-- Copyright --->
+
+                </div>
+                <!-- Grid column --->
+
+                <!-- Grid column --->
+                <div class="col-md-5 col-lg-4 ml-lg-0">
+
+                    <!-- Social buttons --->
+                    <div class="social-section text-center mr-auto text-md-left">
+
+                        <ul class="list-unstyled list-inline">
+
+                            <li class="list-inline-item">
+
+                                <a class="btn-floating btn-sm rgba-white-slight">
+
+                                    <i class="fab fa-facebook-f"></i>
+
+                                </a>
+
+                            </li>
+
+                            <li class="list-inline-item">
+
+                                <a class="btn-floating btn-sm rgba-white-slight">
+
+                                    <i class="fab fa-twitter"></i>
+
+                                </a>
+
+                            </li>
+
+                            <li class="list-inline-item">
+
+                                <a class="btn-floating btn-sm rgba-white-slight">
+
+                                    <i class="fab fa-google-plus-g"></i>
+
+                                </a>
+
+                            </li>
+
+                            <li class="list-inline-item">
+
+                                <a class="btn-floating btn-sm rgba-white-slight">
+
+                                    <i class="fab fa-linkedin-in"></i>
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- Social buttons --->
+
+                </div>
+                <!-- Grid column --->
+
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- Footer --->
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+{#    ../js/jquery-3.4.1.min.js#}
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }} "></script>
+    <!-- Tooltips -->
+    <script type="text/javascript" src="{{ asset('js/popper.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src=" {{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src=" {{ asset('js/mdb.min.js') }}"></script>
+
+    <script>
+        // MDB Lightbox Init
+        $(function () {
+
+            $("#mdb-lightbox-ui").load("/../../mdb-addons/mdb-lightbox-ui.html");
+        });
+
+        // Material Select Initialization
+        $(document).ready(function () {
+            $('.mdb-select').materialSelect();
+        });
+
+
+    </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>

@@ -2,7 +2,6 @@
 
 {% block title pin.title %}
 
-
 {% block body %}
 <article>
     <h1>{{ pin.title }}</h1>
@@ -10,6 +9,11 @@
 </article>
 
     <a href="{{ path('app_pin_edit' ,{slug:pin.slug}) }}">Editer le pin</a> |
+    <a href="#" onclick="event.preventDefault(); confirm('Etes vous sûr de supprimer le pin ?')&& document.getElementById('js-pin_delete_form').submit()">Supprimer le pin</a> |
+    <form id="js-pin_delete_form" action="{{ path('app_pin_delete', {slug:pin.slug}) }}" method="POST" style="display: none">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('pin_delete_' ~ pin.id) }}">
+        <input type="hidden" name="_method" value="DELETE">
+    </form>
     <a href="{{ path('app_home') }}">Retour à la liste des Pins</a>
 {% endblock %}
 
